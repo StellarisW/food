@@ -1,0 +1,64 @@
+app:
+  domain: example.com
+  prefixUrl: https://example.com
+
+logger:
+  savePath:  'log'
+  encoderType: 'console'
+  encodeLevel: 'CapitalLevelEncoder'
+  encodeCaller: 'FullCallerEncoder'
+
+database:
+  mysql:
+    addr: mysql
+    port: 3306
+    username: root
+    password: '8!s82VK4^&zU7&*i'
+    db: food
+    charset: utf8mb4
+  mongo:
+    addr: mongodb
+    port: 27017
+    username: root
+    password: 'm%pjC*&3RMF5PiS2'
+  redis:
+    addr: redis
+    port: 6379
+    password: 'rEdr^r284f%vn!*2'
+    db: 1
+
+server:
+  mode: release
+  port: 8080
+  readTimeout: 60s
+  writeTimeout: 60s
+
+cors:
+  mode: allow_all # allow-all;whitelist(domain from whitelist add cors);strict-whitelist:(deny domain not in whitelist)
+  whitelist:
+    - allow-origin: example1.com
+      allow-headers: content-type
+      allow-methods: GET, POST
+      expose-headers: Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Content-Type
+      allow-credentials: true
+    - allow-origin: example2.com
+      allow-headers: content-type
+      allow-methods: GET, POST
+      expose-headers: Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Content-Type
+      allow-credentials: true
+
+auth:
+  jwt:
+    secretKey: MSR2pH^N6dqqQ5Ns5x!eD2YWVpwzmb3@8RzphRFbEkRwLEra86v3LCB%PvGx$a$L
+    expiresTime: 604800
+    bufferTime: 86400
+    issuer: 'example.com'
+  cookie:
+    secret: yWa6!tEAVtzxyAHHeD&X37!EskL*Js%&t2mUgU!3XCM3PD85!XmM^tcQBwsWByWL
+    domain: 'example.com'
+    maxAge: 604800
+    secure: true
+    httpOnly: true
+    sameSite: 1
+
+yelpApiKey: '' # yelp api key
